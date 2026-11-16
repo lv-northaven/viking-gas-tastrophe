@@ -635,7 +635,7 @@
       <p class="plays-info" id="playsInfo" aria-live="polite">Pick your period above — every Legend gets <b>2 finished games</b> with their Viking name and period to earn their best score. Quitting halfway doesn’t use up a play!</p>
     </div>
     <div class="new-player-row"><button class="btn dark" id="btnNewPlayer" type="button">👋 New Player — start fresh</button></div>
-    <p class="lb-note">Sharing a Chromebook? When a new student sits down, they tap <b>New Player</b> above to start fresh with their own name and period. Your whole Viking name and your period are what go on the class leaderboard at the bottom of this page. You can change them any time before you add your score.</p>
+    <p class="lb-note">Sharing a Chromebook? When a new student sits down, they tap <b>New Player</b> above to start fresh with their own name and period. Your whole Viking name and your period are what go on the leaderboard at the bottom of this page. You can change them any time before you finish — your score is added to the board on this Chromebook automatically when you finish.</p>
   </section>
 
   <!-- ================= STORY ================= -->
@@ -802,33 +802,17 @@
       <p id="playLimitMsg"></p>
       <p class="best" id="playLimitBest"></p>
     </div>
+    <div class="share-help">
+      <b>🏆 Your score is on the leaderboard!</b>
+      <p style="margin:8px 0 0">Your finished game was added automatically to the leaderboard at the bottom of this page — right here in the game, on this Chromebook. No form to fill out. Tap <b>See the Leaderboard</b> below to check your place!</p>
+    </div>
+    <div class="copied-msg" id="copiedMsg" aria-live="polite"></div>
     <div class="btn-row">
-      <a class="btn gold" id="btnClassBoard" href="https://docs.google.com/forms/d/e/1FAIpQLSdB-YB3NLUOvcrsTcHnE2770fYktmYyEiF67nL4Pr-Rkrhouw/viewform?usp=pp_url" target="_blank" rel="noopener">🏆 ADD TO CLASS LEADERBOARD</a>
-      <button class="btn gold" id="btnShare" type="button">📤 SHARE MY SCORE</button>
+      <button class="btn gold" id="btnGoLeaderboard" type="button">🏆 SEE THE LEADERBOARD</button>
       <a class="btn" href="#shadeSec">Go shade my hidden picture</a>
       <button class="btn dark" id="btnReview" type="button">🗝️ Review all 10 coordinates</button>
       <button class="btn" id="btnRestart" type="button">↻ Play again</button>
-      <button class="btn dark" id="btnGoLeaderboard" type="button">🏆 SEE THE CLASS LEADERBOARD</button>
     </div>
-    <p class="board-fallback hidden" id="liveBoardFallbackVictory">If the live leaderboard didn't open in a new tab, <a href="https://docs.google.com/spreadsheets/d/1wpdXUiD7V9cZ1PuhJhgojyRAJibVagwbs0_0DPRaAWQ">tap here to open the live class leaderboard</a>.</p>
-    <div class="share-help">
-      <b>📤 How to turn in your score:</b>
-      <ol>
-        <li>Tap <b>SHARE MY SCORE</b> above — it copies your very own score link. The link already has your Viking name, your silver coins, and your score filled in.</li>
-        <li>Go back to your assignment, tap <b>Add or create</b>, then <b>Link</b>, paste your link in, and <b>Turn in</b>.</li>
-        <li>Your teacher opens your link and sees your score on the leaderboard form, already filled in.</li>
-      </ol>
-      <p style="margin:10px 0 0">🏆 <b>ADD TO CLASS LEADERBOARD</b> opens that same form in a new tab with your Viking name, silver coins, and score already filled in. Check them — your period is filled in too — and submit the form.</p>
-    </div>
-    <div class="copied-msg" id="copiedMsg" aria-live="polite"></div>
-    <div class="share-link-box hidden" id="shareLinkBox">
-      <p class="share-link-steps"><b>🔗 Your score link:</b> Copy this link, go back to your assignment, tap <b>Add or create</b>, then <b>Link</b>, paste it in, and <b>Turn in</b>. Your teacher opens it to see your Viking name, silver coins, and score already filled in on the form.</p>
-      <div class="share-link-row">
-        <input id="shareLinkText" type="text" readonly value="" aria-label="Your score link - copy this and paste it into your assignment">
-        <button class="btn dark" id="btnCopyShareLink" type="button">📋 COPY AGAIN</button>
-      </div>
-    </div>
-    <p class="board-fallback hidden" id="boardFallback">If the leaderboard form didn't open in a new tab, <a id="boardFallbackLink" href="https://docs.google.com/forms/d/e/1FAIpQLSdB-YB3NLUOvcrsTcHnE2770fYktmYyEiF67nL4Pr-Rkrhouw/viewform?usp=pp_url">tap here to open the class leaderboard form</a> — your name, silver coins, and score are already filled in.</p>
     
     </div>
 
@@ -873,8 +857,8 @@
       <figcaption class="lb-banner-title">The Great Viking Gas-tastrophe Leaderboard</figcaption>
     </figure>
     <div class="class-board">
-      <h3 style="color:var(--gold-bright);font-size:21px;margin:0 0 8px">🌍 Class Leaderboard — Live Scores</h3>
-      <p class="lb-note" style="font-size:16px">This board is <b>live</b> — it shows every score sent in with the <b>Add to Class Leaderboard</b> button, biggest pile of silver coins first. It refreshes on its own, or tap <b>Refresh</b> any time. Use the period buttons to see just your class, or the whole crew.</p>
+      <h3 style="color:var(--gold-bright);font-size:21px;margin:0 0 8px">🏆 Leaderboard — This Chromebook</h3>
+      <p class="lb-note" style="font-size:16px">This board lives <b>right here in the game</b> — no form, no link to open. Every finished game <b>on this Chromebook</b> is added automatically, biggest pile of silver coins first. Use the period buttons to see just your class, or the whole crew on this Chromebook.</p>
       <div class="lb-filters" role="group" aria-label="Filter the leaderboard by period">
         <button class="lb-filter-btn selected" type="button" data-lb-filter="all" aria-pressed="true">All Periods</button>
         <button class="lb-filter-btn" type="button" data-lb-filter="1" aria-pressed="false">Period 1</button>
@@ -885,22 +869,17 @@
         <button class="lb-filter-btn" type="button" data-lb-filter="7" aria-pressed="false">Period 7</button>
       </div>
       <div class="lb-controls">
-        <button class="btn gold" id="btnRefreshBoard" type="button">↻ Refresh Board</button>
-        <span class="lb-status" id="lbStatus" aria-live="polite">Loading the live scores…</span>
+        <span class="lb-status" id="lbStatus" aria-live="polite">Scores from this Chromebook will appear here.</span>
       </div>
-      <table class="lb-table hidden" id="lbTable" aria-label="Live class leaderboard scores">
+      <table class="lb-table hidden" id="lbTable" aria-label="Leaderboard scores on this Chromebook">
         <thead><tr><th class="num">Rank</th><th>Viking Name</th><th class="num">Silver Coins</th><th class="num">Score</th><th class="num">Period</th></tr></thead>
         <tbody id="lbBody"></tbody>
       </table>
-      <p class="lb-empty" id="lbEmpty">Loading the live scores…</p>
-      <div class="btn-row" style="justify-content:flex-start">
-        <a class="btn dark" id="btnLiveBoard" href="https://docs.google.com/spreadsheets/d/1wpdXUiD7V9cZ1PuhJhgojyRAJibVagwbs0_0DPRaAWQ" target="_blank" rel="noopener">🏆 SEE THE LIVE CLASS LEADERBOARD</a>
-      </div>
-      <p class="board-fallback hidden" id="liveBoardFallback">If the live leaderboard didn't open in a new tab, <a href="https://docs.google.com/spreadsheets/d/1wpdXUiD7V9cZ1PuhJhgojyRAJibVagwbs0_0DPRaAWQ">tap here to open the live class leaderboard</a>.</p>
+      <p class="lb-empty" id="lbEmpty">🏆 No scores on this Chromebook yet — finish the quiz to be the first Legend up here!</p>
     </div>
   </section>
 
-  <footer>The Great Viking Gas-tastrophe! — a reading comprehension adventure. No name or sign-in needed: your Chromebook already knows it's you in Google Classroom.</footer>
+  <footer>The Great Viking Gas-tastrophe! — a reading comprehension adventure. Scores live on the leaderboard in this game, on this Chromebook.</footer>
 </div>
 
 <script>
@@ -1070,6 +1049,7 @@
     started: false,
     timerPaused: true,
     myLbId: null,
+    lbSaved: false,
     gateCheered: false,
     vikingT: 1, vikingN: 0, vikingE: 0, charIdx: 0, period: "", playCounted: false
   };
@@ -1124,7 +1104,6 @@
     if (typeof renderPlaysInfo === "function") renderPlaysInfo();
     if (typeof updatePlayLimitBox === "function" && state.finished) updatePlayLimitBox();
     if (typeof saveCurrent === "function") saveCurrent();
-    if (typeof updateClassBoardLink === "function") updateClassBoardLink();
   }
   el("btnPickTitle").addEventListener("click", function(){
     state.vikingT = (state.vikingT + 1) % VN_TITLES.length;
@@ -1240,7 +1219,6 @@
     state.period = PERIODS.indexOf(p) !== -1 ? p : "";
     renderPeriod();
     if (state.finished) updatePlayLimitBox();
-    if (typeof updateClassBoardLink === "function") updateClassBoardLink();
     if (typeof syncLbFilterToPeriod === "function") syncLbFilterToPeriod();
     if (!fromRestore) saveCurrent();
   }
@@ -1271,7 +1249,7 @@
   }
   function resetGameToStart(){
     QUIZ = buildQuiz();
-    state.current = 0; state.unlocked = 0; state.finished = false; state.started = false; state.playCounted = false;
+    state.current = 0; state.unlocked = 0; state.finished = false; state.started = false; state.playCounted = false; state.lbSaved = false;
     state.attempts = QUIZ.map(function(){ return 0; });
     state.solved = QUIZ.map(function(){ return false; });
     state.rowSolved = blankRowSolved();
@@ -1524,7 +1502,6 @@
     el("congratsBox").classList.toggle("hidden", !done);
     el("rankLine").classList.toggle("hidden", !done);
     el("finishFirst").classList.toggle("hidden", done);
-    if (typeof updateClassBoardLink === "function") updateClassBoardLink();
     if (done && state.finished && !state.gateCheered){
       state.gateCheered = true;
       playSfx("cheer");
@@ -2035,90 +2012,67 @@
     });
     el("resultsSec").classList.remove("hidden");
     recordFinishedGame();
+    addToLocalLeaderboard();
     renderPlaysInfo();
     updatePlayLimitBox();
     updateVictoryGate();
     el("resultsSec").scrollIntoView({behavior:"smooth", block:"start"});
   }
 
-  /* ---------- Live class leaderboard (embedded board) ----------
-     The class form answers land in a shared Google Sheet. This board
-     fetches that Sheet's CSV export and shows the live scores right here
-     at the bottom of the game, biggest pile of silver coins first.
-     Scores are added with the ADD TO CLASS LEADERBOARD form button on
-     the Victory screen. The SEE THE LIVE CLASS LEADERBOARD button under
-     the board still opens the Sheet itself in a new tab. */
-  var LIVE_BOARD_URL = "https://docs.google.com/spreadsheets/d/1wpdXUiD7V9cZ1PuhJhgojyRAJibVagwbs0_0DPRaAWQ";
-  var LB_CSV_URL = "https://docs.google.com/spreadsheets/d/1wpdXUiD7V9cZ1PuhJhgojyRAJibVagwbs0_0DPRaAWQ/gviz/tq?tqx=out:csv&sheet=Form%20Responses%201";
+  /* ---------- Leaderboard — lives in the game, on this Chromebook ----------
+     No form, no Google Sheet, no external fetch. Finished games are
+     saved in this browser's localStorage on this Chromebook only, and
+     the board at the bottom of the page renders from that list.
+     Each Chromebook keeps its own board. */
+  var LB_KEY = "vikingGasLeaderboardV1";
 
   function escHtml(s){
     return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   }
 
-  // Like the leaderboard-form button, a plain target="_blank" tap can be
-  // silently swallowed inside an app webview or sandboxed frame, so open
-  // the Sheet with window.open() inside the tap handler; if even that is
-  // blocked, reveal a plain same-tab fallback link - that always works.
-  function wireLiveBoardButton(id, fallbackId){
-    var btn = el(id);
-    if (!btn) return;
-    btn.addEventListener("click", function(ev){
-      ev.preventDefault();
-      var opened = null;
-      try { opened = window.open(LIVE_BOARD_URL, "_blank"); } catch(e){ opened = null; }
-      if (!opened){
-        var fb = el(fallbackId);
-        if (fb) fb.classList.remove("hidden");
-      }
-    });
-  }
-  wireLiveBoardButton("btnLiveBoard", "liveBoardFallback");
-
-  /* ----- Embedded board: fetch, parse, filter, render ----- */
-  var lbFilter = "all";       // "all" or one of "1","2","3","5","6","7"
-  var lbRows = [];            // every score row from the Sheet
-  var lbLoaded = false;       // true once a fetch has succeeded
-  var lbFetching = false;
-
-  // Minimal CSV parser that honors quoted fields, embedded commas and
-  // doubled quotes — the shape Google's gviz CSV export produces.
-  function parseCsv(text){
-    var rows = [], row = [], field = "", inQuotes = false;
-    text = String(text || "");
-    for (var i = 0; i < text.length; i++){
-      var ch = text.charAt(i);
-      if (inQuotes){
-        if (ch === '"'){
-          if (text.charAt(i + 1) === '"'){ field += '"'; i++; }
-          else inQuotes = false;
-        } else field += ch;
-      } else if (ch === '"'){
-        inQuotes = true;
-      } else if (ch === ","){
-        row.push(field); field = "";
-      } else if (ch === "\n" || ch === "\r"){
-        if (ch === "\r" && text.charAt(i + 1) === "\n") i++;
-        row.push(field); field = "";
-        rows.push(row); row = [];
-      } else field += ch;
-    }
-    if (field !== "" || row.length){ row.push(field); rows.push(row); }
-    return rows;
-  }
-
-  function lbCoinsNum(v){
-    var n = parseInt(String(v == null ? "" : v).replace(/[^0-9\-]/g, ""), 10);
-    return isNaN(n) ? 0 : n;
-  }
   function lbScoreNum(v){
     var m = String(v == null ? "" : v).match(/^\s*(\d+)/);
     return m ? parseInt(m[1], 10) : -1;
   }
 
+  function loadLbRows(){
+    try {
+      var raw = localStorage.getItem(LB_KEY);
+      var arr = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(arr)) return [];
+      return arr.filter(function(r){ return r && typeof r === "object" && r.name; }).map(function(r){
+        return { name: String(r.name), coins: parseInt(r.coins,10)||0, score: String(r.score||""), period: String(r.period||"") };
+      });
+    } catch(e){ return []; }
+  }
+  function saveLbRows(rows){
+    try { localStorage.setItem(LB_KEY, JSON.stringify(rows)); } catch(e){}
+  }
+
+  var lbFilter = "all";
+  var lbRows = loadLbRows();
+
+  function addToLocalLeaderboard(){
+    if (state.lbSaved) return;
+    state.lbSaved = true;
+    var entry = {
+      name: vikingFullName(),
+      coins: state.points,
+      score: firstTryScore() + "/20",
+      period: state.period ? String(state.period) : ""
+    };
+    lbRows = loadLbRows();
+    lbRows.push(entry);
+    saveLbRows(lbRows);
+    renderLeaderboard();
+    var msg = el("copiedMsg");
+    if (msg) msg.textContent = "🏆 Your score was added to the leaderboard on this Chromebook — scroll down or tap SEE THE LEADERBOARD to see it!";
+  }
+
   function renderLeaderboard(){
+    lbRows = loadLbRows();
     var table = el("lbTable"), body = el("lbBody"), empty = el("lbEmpty"), status = el("lbStatus");
     if (!table || !body || !empty) return;
-    // Filter buttons reflect the current filter.
     var btns = document.querySelectorAll(".lb-filter-btn");
     for (var b = 0; b < btns.length; b++){
       var on = btns[b].getAttribute("data-lb-filter") === lbFilter;
@@ -2146,16 +2100,14 @@
     } else {
       table.classList.add("hidden");
       empty.classList.remove("hidden");
-      empty.textContent = !lbLoaded
-        ? "Loading the live scores…"
-        : (lbFilter === "all"
-          ? "🏆 No scores on the board yet — finish the quiz and tap ADD TO CLASS LEADERBOARD to be the first Legend up here!"
-          : "🏆 No scores for Period " + lbFilter + " yet — finish the quiz and tap ADD TO CLASS LEADERBOARD to put your period on the board!");
+      empty.textContent = lbFilter === "all"
+        ? "🏆 No scores on this Chromebook yet — finish the quiz to be the first Legend up here!"
+        : "🏆 No scores for Period " + lbFilter + " on this Chromebook yet — finish the quiz to put your period on the board!";
     }
-    if (status && lbLoaded){
-      status.textContent = "Showing " + rows.length + (rows.length === 1 ? " score" : " scores") +
-        (lbFilter === "all" ? " — all periods." : " — Period " + lbFilter + ".") +
-        " The board refreshes on its own every minute.";
+    if (status){
+      status.textContent = rows.length
+        ? ("Showing " + rows.length + (rows.length === 1 ? " score" : " scores") + (lbFilter === "all" ? " — all periods, on this Chromebook." : " — Period " + lbFilter + ", on this Chromebook."))
+        : "Scores from finished games on this Chromebook will appear here.";
     }
   }
 
@@ -2163,70 +2115,8 @@
     lbFilter = (f === "all" || PERIODS.indexOf(f) !== -1) ? f : "all";
     renderLeaderboard();
   }
-  // The board opens on the student's own period; picking a period at the
-  // top of the game moves the board's filter to match.
   function syncLbFilterToPeriod(){
     setLbFilter(state.period ? state.period : "all");
-  }
-
-  function fetchLeaderboard(){
-    var status = el("lbStatus");
-    if (lbFetching) return;
-    if (typeof fetch !== "function"){
-      if (status) status.textContent = "This browser can't load the live board — use the SEE THE LIVE CLASS LEADERBOARD button below the board instead.";
-      return;
-    }
-    lbFetching = true;
-    if (status) status.textContent = lbLoaded ? "Refreshing the live scores…" : "Loading the live scores…";
-    fetch(LB_CSV_URL, { cache: "no-store" }).then(function(res){
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      return res.text();
-    }).then(function(text){
-      var parsed = parseCsv(text);
-      var rows = [];
-      if (parsed.length > 1){
-        // Columns by header name, with the known layout as fallback:
-        // Timestamp | First and last name | Your silver coins | Your score | Period
-        var head = parsed[0].map(function(h){ return String(h || "").toLowerCase(); });
-        function colIdx(words, fallback){
-          for (var c = 0; c < head.length; c++){
-            for (var w = 0; w < words.length; w++){
-              if (head[c].indexOf(words[w]) !== -1) return c;
-            }
-          }
-          return fallback;
-        }
-        var iName = colIdx(["name"], 1);
-        var iCoins = colIdx(["silver", "coin"], 2);
-        var iScore = colIdx(["score"], 3);
-        var iPeriod = colIdx(["period"], 4);
-        for (var r = 1; r < parsed.length; r++){
-          var cells = parsed[r];
-          var name = String(cells[iName] || "").trim();
-          if (!name) continue;
-          var periodRaw = String(cells[iPeriod] || "").trim();
-          var pm = periodRaw.match(/(\d+)/);
-          rows.push({
-            name: name,
-            coins: lbCoinsNum(cells[iCoins]),
-            score: String(cells[iScore] || "").trim(),
-            period: pm ? pm[1] : ""
-          });
-        }
-      }
-      lbRows = rows;
-      lbLoaded = true;
-      lbFetching = false;
-      renderLeaderboard();
-    }).catch(function(){
-      lbFetching = false;
-      if (status) status.textContent = "⚠️ The live board couldn't load just now. Tap Refresh Board to try again — or use the SEE THE LIVE CLASS LEADERBOARD button below the board.";
-      var empty = el("lbEmpty");
-      if (empty && !lbLoaded){
-        empty.classList.remove("hidden");
-        empty.textContent = "⚠️ The live scores couldn't load. Check your internet connection, then tap Refresh Board above.";
-      }
-    });
   }
 
   (function(){
@@ -2236,18 +2126,13 @@
         btn.addEventListener("click", function(){ setLbFilter(btn.getAttribute("data-lb-filter")); });
       })(btns[i]);
     }
-    var rb = el("btnRefreshBoard");
-    if (rb) rb.addEventListener("click", fetchLeaderboard);
-    // Victory screen: glide down to the embedded board and refresh it.
     var go = el("btnGoLeaderboard");
     if (go) go.addEventListener("click", function(){
-      fetchLeaderboard();
+      renderLeaderboard();
       el("leaderboardSec").scrollIntoView({behavior:"smooth", block:"start"});
     });
     syncLbFilterToPeriod();
-    fetchLeaderboard();
-    // Auto-refresh: the board pulls the newest scores every minute.
-    setInterval(function(){ fetchLeaderboard(); }, 60000);
+    renderLeaderboard();
   })();
 
   el("btnReview").addEventListener("click", function(){
@@ -2257,85 +2142,6 @@
     el("btnReview").textContent = opening ? "🗝️ Hide coordinates" : "🗝️ Review all 10 coordinates";
     if (opening) p.scrollIntoView({behavior:"smooth", block:"nearest"});
   });
-
-  // "Share my score": ONE button, ONE link. It builds the student’s own
-  // prefilled leaderboard-form link (whole Viking name, silver coins,
-  // score as N/20), shows it in a box, and copies it automatically.
-  // The student pastes the link into their Classroom assignment and
-  // turns it in; the teacher opens it to see the score already filled in.
-  function copyShareLink(url){
-    var msg = el("copiedMsg");
-    var input = el("shareLinkText");
-    function ok(){ msg.textContent = "✅ Link copied — paste it into your assignment: go back to your assignment, tap Add or create, then Link, paste it in, and Turn in."; }
-    function fail(){ msg.textContent = "📋 Automatic copy didn’t work on this device — copy the link from the box above by hand, then paste it into your assignment."; }
-    function execCopy(){
-      try {
-        input.focus(); input.select();
-        if (document.execCommand("copy")) ok(); else fail();
-      } catch(e){ fail(); }
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(url).then(ok, execCopy);
-    } else { execCopy(); }
-  }
-  function showShareLink(){
-    var url = classBoardUrl();
-    var box = el("shareLinkBox");
-    el("shareLinkText").value = url;
-    box.classList.remove("hidden");
-    copyShareLink(url);
-    box.scrollIntoView({behavior:"smooth", block:"nearest"});
-  }
-  el("btnShare").addEventListener("click", showShareLink);
-  el("btnCopyShareLink").addEventListener("click", showShareLink);
-  el("shareLinkText").addEventListener("click", function(){ this.select(); });
-
-
-  // "Add to class leaderboard": opens the class leaderboard Google Form
-  // with the student’s whole Viking name, silver coins, and score
-  // already filled in, and so is the period the student picked at the start.
-  //
-  // WHY THE OLD BUTTON DID NOTHING: it was a plain target="_blank" link,
-  // and this page is usually opened inside an app webview or a sandboxed
-  // frame, where a target="_blank" tap is silently swallowed — no new
-  // tab is created and nothing happens at all. The fix: on tap, open the
-  // form with window.open() inside the tap handler (a real user gesture,
-  // which webviews and popup blockers honor). If even that is blocked,
-  // a plain same-tab fallback link is revealed — that always works.
-  function classBoardName(){
-    return vikingFullName();
-  }
-  function classBoardUrl(){
-    return "https://docs.google.com/forms/d/e/1FAIpQLSdB-YB3NLUOvcrsTcHnE2770fYktmYyEiF67nL4Pr-Rkrhouw/viewform?usp=pp_url" +
-      "&entry.6d51ce43=" + encodeURIComponent(classBoardName()) +
-      "&entry.4f563237=" + encodeURIComponent(String(state.points)) +
-      "&entry.4f885476=" + encodeURIComponent(firstTryScore() + "/20") +
-      (state.period ? "&entry.6db0036b=" + encodeURIComponent(state.period) : "");
-  }
-  function updateClassBoardLink(){
-    var url = classBoardUrl();
-    el("btnClassBoard").href = url;
-    var fb = el("boardFallbackLink");
-    if (fb) fb.href = url;
-    var sl = el("shareLinkText");
-    if (sl && !el("shareLinkBox").classList.contains("hidden")) sl.value = url;
-  }
-  el("btnClassBoard").addEventListener("click", function(ev){
-    ev.preventDefault();
-    var url = classBoardUrl();
-    el("btnClassBoard").href = url;
-    var fb = el("boardFallbackLink");
-    if (fb) fb.href = url;
-    var opened = null;
-    try { opened = window.open(url, "_blank"); } catch(e){ opened = null; }
-    el("boardFallback").classList.remove("hidden");
-    if (opened){
-      el("copiedMsg").textContent = "🏆 Opening the class leaderboard form in a new tab — check your Viking name, silver coins, score, and period, and submit the form!";
-    } else {
-      el("copiedMsg").textContent = "🏆 Your browser blocked the new tab — tap the link below to open the class leaderboard form. Your Viking name, silver coins, and score are already filled in.";
-    }
-  });
-  updateClassBoardLink();
 
   // "Check the Vault": glide up to the Coordinate Vault and flash it gold so
   // the student can read the coordinates they have earned so far.
@@ -2388,7 +2194,7 @@
 
   el("btnRestart").addEventListener("click", function(){
     QUIZ = buildQuiz();
-    state.current = 0; state.unlocked = 0; state.finished = false; state.started = true; state.playCounted = false;
+    state.current = 0; state.unlocked = 0; state.finished = false; state.started = true; state.playCounted = false; state.lbSaved = false;
     state.attempts = QUIZ.map(function(){ return 0; });
     state.solved = QUIZ.map(function(){ return false; });
     state.rowSolved = blankRowSolved();
